@@ -3,7 +3,7 @@ const swaggerAutogen = require('swagger-autogen')();
 const doc = {
   info: {
     title: 'IVONUTRI API',
-    description: 'Cette API permet d’accéder au système IVONUTRI...',
+    description: "un service web dédié au backend de l'application Ivonutri, une application conçue pour aider les utilisateurs à adopter une alimentation saine afin d'améliorer leur santé. Ce service permet la gestion des profils nutritionnels, des préférences des utilisateurs, ainsi que des informations les concernant via une API RESTful.",
   },
   host: 'localhost:3001',
   schemes: ['http', 'https'],
