@@ -45,7 +45,7 @@ profilnutritionnelController.updateProfilNutritionnel = async (req, res, next) =
     if (result) {
         res.status(httpStatusCodes.OK).json({success: true, profilnutritionnel: result});
     } else {
-        throw new appError(httpStatusCodes.NOT_FOUND, 'Profile non trouvé');
+        throw new appError(httpStatusCodes.BAD_REQUEST, 'Echec de la mise à jour du profile');
     }
 }
 

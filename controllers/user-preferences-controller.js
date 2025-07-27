@@ -58,7 +58,7 @@ userpreferenceController.updateUserPreferenceById = async (req, res, next) => {
     if (result) {
         res.status(httpStatusCodes.OK).json({success: true, userpreference: result});
     } else {
-        throw new appError(httpStatusCodes.NOT_FOUND, 'Préferences non trouvé');
+        throw new appError(httpStatusCodes.BAD_GATEWAY, 'Echec de la mise à jour de la préférence.');
     }
 }
 
@@ -71,7 +71,7 @@ userpreferenceController.updateUserPreferenceByUserId = async (req, res, next) =
     if (result) {
         res.status(httpStatusCodes.OK).json({success: true, userpreference: result});
     } else {
-        throw new appError(httpStatusCodes.NOT_FOUND, 'Préferences non trouvé');
+        throw new appError(httpStatusCodes.BAD_GATEWAY, 'Echec de la mise à jour de la préférence');
     }
 }
 
