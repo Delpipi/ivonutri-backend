@@ -64,9 +64,10 @@ Validate.checkRules = async (req, res, next) => {
     if (!errors.isEmpty()) {
         const extractedErrors = [];
         errors.array().map(err => extractedErrors.push({[err.path]: err.msg }))
-        return res.status(httpStatusCodes.UNPROCESSABLE_ENTITY).json({
-            errors: extractedErrors,
-        });
+        const error = new Error("Erreur de validation");
+        error.status = httpStatusCodes.UNPROCESSABLE_ENTITY;
+        error.details = extractedErrors;
+        return next(error);
     }
     next();
 }

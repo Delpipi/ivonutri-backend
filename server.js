@@ -37,8 +37,8 @@ app.use(async (err, req, res, next) => {
     console.error(`Error: "${err.status}": ${err.message}`);
     res.status(err.status || 500).json({
         success: false,
-        statusCode: err.status,
-        message: err.message || 'Insernal Server error'
+        message: err.message || 'Insernal Server error',
+        details: err.details || []
     });
 });
 

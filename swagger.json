@@ -33,7 +33,10 @@
         "description": "",
         "responses": {
           "default": {
-            "description": ""
+            "description": "Erreur",
+            "schema": {
+              "$ref": "#/definitions/ErrorResponse"
+            }
           }
         }
       },
@@ -54,7 +57,10 @@
         ],
         "responses": {
           "default": {
-            "description": ""
+            "description": "Erreur",
+            "schema": {
+              "$ref": "#/definitions/ErrorResponse"
+            }
           }
         }
       }
@@ -102,7 +108,10 @@
         ],
         "responses": {
           "default": {
-            "description": ""
+            "description": "Erreur",
+            "schema": {
+              "$ref": "#/definitions/ErrorResponse"
+            }
           }
         }
       },
@@ -121,7 +130,10 @@
         ],
         "responses": {
           "default": {
-            "description": ""
+            "description": "Erreur",
+            "schema": {
+              "$ref": "#/definitions/ErrorResponse"
+            }
           }
         }
       }
@@ -134,7 +146,10 @@
         "description": "",
         "responses": {
           "default": {
-            "description": ""
+            "description": "Erreur",
+            "schema": {
+              "$ref": "#/definitions/ErrorResponse"
+            }
           }
         }
       },
@@ -155,7 +170,10 @@
         ],
         "responses": {
           "default": {
-            "description": ""
+            "description": "Erreur",
+            "schema": {
+              "$ref": "#/definitions/ErrorResponse"
+            }
           }
         }
       }
@@ -176,7 +194,10 @@
         ],
         "responses": {
           "default": {
-            "description": ""
+            "description": "Erreur",
+            "schema": {
+              "$ref": "#/definitions/ErrorResponse"
+            }
           }
         }
       },
@@ -203,7 +224,10 @@
         ],
         "responses": {
           "default": {
-            "description": ""
+            "description": "Erreur",
+            "schema": {
+              "$ref": "#/definitions/ErrorResponse"
+            }
           }
         }
       },
@@ -222,7 +246,10 @@
         ],
         "responses": {
           "default": {
-            "description": ""
+            "description": "Erreur",
+            "schema": {
+              "$ref": "#/definitions/ErrorResponse"
+            }
           }
         }
       }
@@ -235,7 +262,10 @@
         "description": "",
         "responses": {
           "default": {
-            "description": ""
+            "description": "Erreur",
+            "schema": {
+              "$ref": "#/definitions/ErrorResponse"
+            }
           }
         }
       },
@@ -256,7 +286,10 @@
         ],
         "responses": {
           "default": {
-            "description": ""
+            "description": "Erreur",
+            "schema": {
+              "$ref": "#/definitions/ErrorResponse"
+            }
           }
         }
       }
@@ -277,7 +310,10 @@
         ],
         "responses": {
           "default": {
-            "description": ""
+            "description": "Erreur",
+            "schema": {
+              "$ref": "#/definitions/ErrorResponse"
+            }
           }
         }
       },
@@ -304,7 +340,10 @@
         ],
         "responses": {
           "default": {
-            "description": ""
+            "description": "Erreur",
+            "schema": {
+              "$ref": "#/definitions/ErrorResponse"
+            }
           }
         }
       },
@@ -323,7 +362,10 @@
         ],
         "responses": {
           "default": {
-            "description": ""
+            "description": "Erreur",
+            "schema": {
+              "$ref": "#/definitions/ErrorResponse"
+            }
           }
         }
       }
@@ -344,7 +386,10 @@
         ],
         "responses": {
           "default": {
-            "description": ""
+            "description": "Erreur",
+            "schema": {
+              "$ref": "#/definitions/ErrorResponse"
+            }
           }
         }
       },
@@ -371,7 +416,10 @@
         ],
         "responses": {
           "default": {
-            "description": ""
+            "description": "Erreur",
+            "schema": {
+              "$ref": "#/definitions/ErrorResponse"
+            }
           }
         }
       }
@@ -486,6 +534,35 @@
           ],
           "items": {
             "type": "string"
+          }
+        }
+      }
+    },
+    "ErrorResponse": {
+      "type": "object",
+      "properties": {
+        "success": {
+          "type": "boolean",
+          "example": false
+        },
+        "message": {
+          "type": "string",
+          "example": "Message d'erreur clair pour l'utilisateur"
+        },
+        "details": {
+          "type": "array",
+          "items": {
+            "type": "object",
+            "properties": {
+              "field": {
+                "type": "string",
+                "example": "nom"
+              },
+              "message": {
+                "type": "string",
+                "example": "Le nom est requis"
+              }
+            }
           }
         }
       }

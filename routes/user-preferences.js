@@ -6,17 +6,32 @@ const prefController = require('../controllers/user-preferences-controller');
 // Add routes
 
 routes.get('/',
-    /* #swagger.tags = ['Préférences utilisateur'] */
+    /*  #swagger.tags = ['Préférences utilisateur'] 
+        #swagger.responses[default] = {
+            description: 'Erreur',
+            schema: { $ref: '#/definitions/ErrorResponse' }
+        }
+    */
     utilities.handleErrors(prefController.getAllUserPreferences)
 );
 routes.get('/:id',
-    /* #swagger.tags = ['Préférences utilisateur'] */
+    /* #swagger.tags = ['Préférences utilisateur'] 
+        #swagger.responses[default] = {
+            description: 'Erreur',
+            schema: { $ref: '#/definitions/ErrorResponse' }
+        }
+    */
     validate.IdRules(),
     validate.checkRules,
     utilities.handleErrors(prefController.getUserPreferenceById)
 );
 routes.get('/user/:id',
-    /* #swagger.tags = ['Préférences utilisateur'] */
+    /* #swagger.tags = ['Préférences utilisateur'] 
+       #swagger.responses[default] = {
+        description: 'Erreur',
+        schema: { $ref: '#/definitions/ErrorResponse' }
+      }
+    */
     validate.IdRules(),
     validate.checkRules,
     utilities.handleErrors(prefController.getUserPreferenceByUserId)
@@ -29,6 +44,10 @@ routes.post('/',
         required: true,
         schema: { $ref: '#/definitions/Preferences' }
         }
+        #swagger.responses[default] = {
+        description: 'Erreur',
+        schema: { $ref: '#/definitions/ErrorResponse' }
+      }
     */
     validate.userPreferencesRules(),
     validate.checkRules,
@@ -42,6 +61,10 @@ routes.put('/:id',
         required: true,
         schema: { $ref: '#/definitions/Preferences' }
         }
+        #swagger.responses[default] = {
+        description: 'Erreur',
+        schema: { $ref: '#/definitions/ErrorResponse' }
+      }
     */
     validate.IdRules(),
     validate.userPreferencesRules(),
@@ -56,6 +79,10 @@ routes.put('/user/:id',
         required: true,
         schema: { $ref: '#/definitions/Preferences' }
         }
+        #swagger.responses[default] = {
+        description: 'Erreur',
+        schema: { $ref: '#/definitions/ErrorResponse' }
+      }
     */
     validate.IdRules(),
     validate.userPreferencesRules(),
@@ -64,7 +91,12 @@ routes.put('/user/:id',
 );
 
 routes.delete('/:id', 
-    /* #swagger.tags = ['Préférences utilisateur'] */
+    /* #swagger.tags = ['Préférences utilisateur'] 
+       #swagger.responses[default] = {
+        description: 'Erreur',
+        schema: { $ref: '#/definitions/ErrorResponse' }
+      }
+    */
     validate.IdRules(),
     validate.checkRules,
     utilities.handleErrors(prefController.deleteUserPreferenceById)

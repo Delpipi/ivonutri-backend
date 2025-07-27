@@ -6,11 +6,21 @@ const profilController = require('../controllers/profil-nutritionnels-controller
 // Add routes
 
 routes.get('/',
-    /* #swagger.tags = ['Profils nutritionnels'] */
+    /* #swagger.tags = ['Profils nutritionnels'] 
+    #swagger.responses[default] = {
+        description: 'Erreur',
+        schema: { $ref: '#/definitions/ErrorResponse' }
+      }
+    */
     utilities.handleErrors(profilController.getAllProfilNutritionnels)
 );
 routes.get('/:id',
-    /* #swagger.tags = ['Profils nutritionnels'] */
+    /* #swagger.tags = ['Profils nutritionnels'] 
+    #swagger.responses[default] = {
+        description: 'Erreur',
+        schema: { $ref: '#/definitions/ErrorResponse' }
+      }
+    */
     validate.IdRules(),
     validate.checkRules,
     utilities.handleErrors(profilController.getProfilNutritionnelById)
@@ -23,6 +33,10 @@ routes.post('/',
         required: true,
         schema: { $ref: '#/definitions/Nutritionnels' }
         }
+        #swagger.responses[default] = {
+        description: 'Erreur',
+        schema: { $ref: '#/definitions/ErrorResponse' }
+      }
     */
     validate.profilNutritionnelsRules(),
     validate.checkRules,
@@ -36,6 +50,10 @@ routes.put('/:id',
         required: true,
         schema: { $ref: '#/definitions/Nutritionnels' }
         }
+        #swagger.responses[default] = {
+        description: 'Erreur',
+        schema: { $ref: '#/definitions/ErrorResponse' }
+      }
     */
     validate.IdRules(),
     validate.profilNutritionnelsRules(),
@@ -43,7 +61,12 @@ routes.put('/:id',
     utilities.handleErrors(profilController.updateProfilNutritionnel)
 );
 routes.delete('/:id',
-    /* #swagger.tags = ['Profils nutritionnels'] */
+    /* #swagger.tags = ['Profils nutritionnels'] 
+    #swagger.responses[default] = {
+        description: 'Erreur',
+        schema: { $ref: '#/definitions/ErrorResponse' }
+      }
+    */
     validate.IdRules(),
     validate.checkRules,
     utilities.handleErrors(profilController.deleteProfilNutritionnelById)

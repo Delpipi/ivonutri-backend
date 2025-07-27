@@ -36,6 +36,14 @@ const doc = {
         objectif: "string",
         besoinsCaloriques: "number",
         pathologies: ["string"]
+    },
+    ErrorResponse: {
+      success: false,
+      message: "Message d'erreur clair pour l'utilisateur",
+      details: [
+        { field: "email", message: "Email invalide" },
+        { field: "nom", message: "Le nom est requis" }
+      ]
     }
   }
 };

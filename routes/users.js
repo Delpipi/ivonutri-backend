@@ -6,7 +6,12 @@ const userController = require('../controllers/user-controller');
 // Add routes
 
 routes.get('/',
-    /* #swagger.tags = ['Users'] */
+    /* #swagger.tags = ['Users'] 
+      #swagger.responses[default] = {
+        description: 'Erreur',
+        schema: { $ref: '#/definitions/ErrorResponse' }
+      }
+    */
     utilities.handleErrors(userController.getAllUsers)
 );
 
@@ -25,6 +30,10 @@ routes.post('/',
       required: true,
       schema: { $ref: '#/definitions/User' }
     }
+    #swagger.responses[default] = {
+      description: 'Erreur',
+      schema: { $ref: '#/definitions/ErrorResponse' }
+    }
   */
     validate.userRules(),
     validate.checkRules,
@@ -39,6 +48,10 @@ routes.put('/:id',
       required: true,
       schema: { $ref: '#/definitions/User' }
     }
+    #swagger.responses[default] = {
+      description: 'Erreur',
+      schema: { $ref: '#/definitions/ErrorResponse' }
+    }
   */
     validate.userIdRules(),
     validate.userRules(),
@@ -47,7 +60,12 @@ routes.put('/:id',
 );
 
 routes.delete('/:id',
-    /* #swagger.tags = ['Users'] */
+    /* #swagger.tags = ['Users'] 
+      #swagger.responses[default] = {
+        description: 'Erreur',
+        schema: { $ref: '#/definitions/ErrorResponse' }
+      }
+    */
     validate.userIdRules(),
     validate.checkRules,
     utilities.handleErrors(userController.deleteUserById),
