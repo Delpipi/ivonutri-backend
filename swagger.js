@@ -5,8 +5,8 @@ const doc = {
     title: 'IVONUTRI API',
     description: "un service web dédié au backend de l'application Ivonutri, une application conçue pour aider les utilisateurs à adopter une alimentation saine afin d'améliorer leur santé. Ce service permet la gestion des profils nutritionnels, des préférences des utilisateurs, ainsi que des informations les concernant via une API RESTful.",
   },
-  host: 'localhost:3001',
-  schemes: ['http', 'https'],
+  host: 'ivonutri-backend.onrender.com',
+  schemes: ['https'],
   tags: [
     { name: 'Users', description: 'Gestion des utilisateurs' },
     { name: 'Profils nutritionnels', description: 'Gestion des profils nutritionnels' },
