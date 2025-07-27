@@ -17,13 +17,29 @@ routes.get('/:id',
     utilities.handleErrors(userController.getUserById),
 );
 routes.post('/',
-    /* #swagger.tags = ['Users'] */
+   /*
+    #swagger.tags = ['Users']
+    #swagger.description = 'Créer un nouvel utilisateur'
+    #swagger.parameters['body'] = {
+      in: 'body',
+      required: true,
+      schema: { $ref: '#/definitions/User' }
+    }
+  */
     validate.userRules(),
     validate.checkRules,
     utilities.handleErrors(userController.createUser),
 );
 routes.put('/:id',
-    /* #swagger.tags = ['Users'] */
+    /*
+    #swagger.tags = ['Users']
+    #swagger.description = 'Modifier un utilisateur'
+    #swagger.parameters['body'] = {
+      in: 'body',
+      required: true,
+      schema: { $ref: '#/definitions/User' }
+    }
+  */
     validate.userIdRules(),
     validate.userRules(),
     validate.checkRules,

@@ -16,13 +16,27 @@ routes.get('/:id',
     utilities.handleErrors(profilController.getProfilNutritionnelById)
 );
 routes.post('/', 
-    /* #swagger.tags = ['Profils nutritionnels'] */
+    /* #swagger.tags = ['Profils nutritionnels'] 
+        #swagger.description = 'Créer un profil'
+        #swagger.parameters['body'] = {
+        in: 'body',
+        required: true,
+        schema: { $ref: '#/definitions/Nutritionnels' }
+        }
+    */
     validate.profilNutritionnelsRules(),
     validate.checkRules,
     utilities.handleErrors(profilController.createProfilNutritionnel)
 );
 routes.put('/:id',
-    /* #swagger.tags = ['Profils nutritionnels'] */
+     /* #swagger.tags = ['Profils nutritionnels'] 
+        #swagger.description = 'Modifier un profil'
+        #swagger.parameters['body'] = {
+        in: 'body',
+        required: true,
+        schema: { $ref: '#/definitions/Nutritionnels' }
+        }
+    */
     validate.IdRules(),
     validate.profilNutritionnelsRules(),
     validate.checkRules,

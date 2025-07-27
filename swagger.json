@@ -2,10 +2,10 @@
   "swagger": "2.0",
   "info": {
     "title": "IVONUTRI API",
-    "description": "Cette API permet d’accéder au système IVONUTRI. Elle offre des fonctionnalités pour gérer les profils nutritionnels, suivre les recommandations etc. Les principaux modules incluent l’authentification, la gestion des aliments, le traitement des recommandation etc..",
+    "description": "Cette API permet d’accéder au système IVONUTRI...",
     "version": "1.0.0"
   },
-  "host": "ivonutri-backend.onrender.com",
+  "host": "localhost:3001",
   "basePath": "/",
   "tags": [
     {
@@ -22,8 +22,8 @@
     }
   ],
   "schemes": [
-    "https",
-    "http"
+    "http",
+    "https"
   ],
   "paths": {
     "/users/": {
@@ -42,7 +42,17 @@
         "tags": [
           "Users"
         ],
-        "description": "",
+        "description": "Créer un nouvel utilisateur",
+        "parameters": [
+          {
+            "name": "body",
+            "in": "body",
+            "required": true,
+            "schema": {
+              "$ref": "#/definitions/User"
+            }
+          }
+        ],
         "responses": {
           "default": {
             "description": ""
@@ -74,13 +84,21 @@
         "tags": [
           "Users"
         ],
-        "description": "",
+        "description": "Modifier un utilisateur",
         "parameters": [
           {
             "name": "id",
             "in": "path",
             "required": true,
             "type": "string"
+          },
+          {
+            "name": "body",
+            "in": "body",
+            "required": true,
+            "schema": {
+              "$ref": "#/definitions/User"
+            }
           }
         ],
         "responses": {
@@ -125,7 +143,17 @@
         "tags": [
           "Profils nutritionnels"
         ],
-        "description": "",
+        "description": "Créer un profil",
+        "parameters": [
+          {
+            "name": "body",
+            "in": "body",
+            "required": true,
+            "schema": {
+              "$ref": "#/definitions/Nutritionnels"
+            }
+          }
+        ],
         "responses": {
           "default": {
             "description": ""
@@ -157,13 +185,21 @@
         "tags": [
           "Profils nutritionnels"
         ],
-        "description": "",
+        "description": "Modifier un profil",
         "parameters": [
           {
             "name": "id",
             "in": "path",
             "required": true,
             "type": "string"
+          },
+          {
+            "name": "body",
+            "in": "body",
+            "required": true,
+            "schema": {
+              "$ref": "#/definitions/Nutritionnels"
+            }
           }
         ],
         "responses": {
@@ -208,7 +244,17 @@
         "tags": [
           "Préférences utilisateur"
         ],
-        "description": "",
+        "description": "créer une préférence",
+        "parameters": [
+          {
+            "name": "body",
+            "in": "body",
+            "required": true,
+            "schema": {
+              "$ref": "#/definitions/Preferences"
+            }
+          }
+        ],
         "responses": {
           "default": {
             "description": ""
@@ -240,13 +286,21 @@
         "tags": [
           "Préférences utilisateur"
         ],
-        "description": "",
+        "description": "Modifier une préférence par id",
         "parameters": [
           {
             "name": "id",
             "in": "path",
             "required": true,
             "type": "string"
+          },
+          {
+            "name": "body",
+            "in": "body",
+            "required": true,
+            "schema": {
+              "$ref": "#/definitions/Preferences"
+            }
           }
         ],
         "responses": {
@@ -299,18 +353,140 @@
         "tags": [
           "Préférences utilisateur"
         ],
-        "description": "",
+        "description": "Modifier une préférence par id utilisateur",
         "parameters": [
           {
             "name": "id",
             "in": "path",
             "required": true,
             "type": "string"
+          },
+          {
+            "name": "body",
+            "in": "body",
+            "required": true,
+            "schema": {
+              "$ref": "#/definitions/Preferences"
+            }
           }
         ],
         "responses": {
           "default": {
             "description": ""
+          }
+        }
+      }
+    }
+  },
+  "definitions": {
+    "User": {
+      "type": "object",
+      "properties": {
+        "nom": {
+          "type": "string",
+          "example": "string"
+        },
+        "email": {
+          "type": "string",
+          "example": "string"
+        },
+        "role": {
+          "type": "string",
+          "example": "string"
+        },
+        "langue": {
+          "type": "string",
+          "example": "string"
+        },
+        "profilNutritionnelId": {
+          "type": "string",
+          "example": "string"
+        }
+      }
+    },
+    "Preferences": {
+      "type": "object",
+      "properties": {
+        "userId": {
+          "type": "string",
+          "example": "string"
+        },
+        "alimentsAimes": {
+          "type": "array",
+          "example": [
+            "string"
+          ],
+          "items": {
+            "type": "string"
+          }
+        },
+        "alimentsEvites": {
+          "type": "array",
+          "example": [
+            "string"
+          ],
+          "items": {
+            "type": "string"
+          }
+        },
+        "allergies": {
+          "type": "array",
+          "example": [
+            "string"
+          ],
+          "items": {
+            "type": "string"
+          }
+        },
+        "regimes": {
+          "type": "array",
+          "example": [
+            "string"
+          ],
+          "items": {
+            "type": "string"
+          }
+        }
+      }
+    },
+    "Nutritionnels": {
+      "type": "object",
+      "properties": {
+        "genre": {
+          "type": "string",
+          "example": "string"
+        },
+        "age": {
+          "type": "string",
+          "example": "string"
+        },
+        "poids": {
+          "type": "string",
+          "example": "string"
+        },
+        "taille": {
+          "type": "string",
+          "example": "string"
+        },
+        "niveauActivite": {
+          "type": "string",
+          "example": "string"
+        },
+        "objectif": {
+          "type": "string",
+          "example": "string"
+        },
+        "besoinsCaloriques": {
+          "type": "string",
+          "example": "number"
+        },
+        "pathologies": {
+          "type": "array",
+          "example": [
+            "string"
+          ],
+          "items": {
+            "type": "string"
           }
         }
       }

@@ -22,20 +22,41 @@ routes.get('/user/:id',
     utilities.handleErrors(prefController.getUserPreferenceByUserId)
 );
 routes.post('/',
-    /* #swagger.tags = ['Préférences utilisateur'] */
+    /* #swagger.tags = ['Préférences utilisateur'] 
+        #swagger.description = 'créer une préférence'
+        #swagger.parameters['body'] = {
+        in: 'body',
+        required: true,
+        schema: { $ref: '#/definitions/Preferences' }
+        }
+    */
     validate.userPreferencesRules(),
     validate.checkRules,
     utilities.handleErrors(prefController.createUserPreference)
 );
 routes.put('/:id',
-    /* #swagger.tags = ['Préférences utilisateur'] */
+    /* #swagger.tags = ['Préférences utilisateur'] 
+        #swagger.description = 'Modifier une préférence par id'
+        #swagger.parameters['body'] = {
+        in: 'body',
+        required: true,
+        schema: { $ref: '#/definitions/Preferences' }
+        }
+    */
     validate.IdRules(),
     validate.userPreferencesRules(),
     validate.checkRules,
     utilities.handleErrors(prefController.updateUserPreferenceById)
 );
 routes.put('/user/:id',
-    /* #swagger.tags = ['Préférences utilisateur'] */
+     /* #swagger.tags = ['Préférences utilisateur'] 
+        #swagger.description = 'Modifier une préférence par id utilisateur'
+        #swagger.parameters['body'] = {
+        in: 'body',
+        required: true,
+        schema: { $ref: '#/definitions/Preferences' }
+        }
+    */
     validate.IdRules(),
     validate.userPreferencesRules(),
     validate.checkRules,

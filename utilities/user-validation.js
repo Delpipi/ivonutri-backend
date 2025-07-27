@@ -40,7 +40,7 @@ Validate.userRules = () => {
             .trim()
             .notEmpty().withMessage('Votre profile est requis')
             .isString()
-            .custom((roles) => roles.every(role => roles.includes(role)))
+            .custom(role => roles.includes(role))
             .withMessage("Merci de spécifié un profile valide"),
         
         body("langue")
@@ -49,7 +49,8 @@ Validate.userRules = () => {
             .withMessage("Merci de selectionner une langue valide"),
         
         body("profilNutritionnelId")
-            .optional()
+            .optional({ nullable: true })
+            .bail()
             .isString()
             .isMongoId("Votre profil nutritionnel est invalide")
     ]
