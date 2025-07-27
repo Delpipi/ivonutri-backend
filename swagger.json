@@ -5,7 +5,7 @@
     "description": "Cette API permet d’accéder au système IVONUTRI. Elle offre des fonctionnalités pour gérer les profils nutritionnels, suivre les recommandations etc. Les principaux modules incluent l’authentification, la gestion des aliments, le traitement des recommandation etc..",
     "version": "1.0.0"
   },
-  "host": "localhost:3001",
+  "host": "ivonutri-backend.onrender.com",
   "basePath": "/",
   "tags": [
     {
