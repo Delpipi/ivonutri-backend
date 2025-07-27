@@ -1,0 +1,87 @@
+//LOCALHOST
+
+### GET all user preferences
+GET http://localhost:3001/user-preferences
+
+### GET user preferences by Id
+GET http://localhost:3001/user-preferences/687f8239322f5ca855f8b536
+
+### GET user preferences by userId
+GET http://localhost:3001/user-preferences/user/687f7711322f5ca855f8b52e
+
+### POST create user
+POST http://localhost:3001/user-preferences
+Content-Type: application/json
+
+{
+    "userId": "11",
+    "alimentsAimes": [
+        "attieké",
+        "poisson braisé",
+        "alloco",
+        "sauce graine",
+        "riz sauce tomate"
+    ],
+    "alimentsEvites": [
+        "porc",
+        "fromage",
+        "boissons gazeuses"
+    ],
+    "allergies": [
+        "arachides"
+    ],
+    "regime": [
+        "sans arachides",
+        "halal"
+    ]
+}
+
+
+### PUT update user
+PUT http://localhost:3001/user-preferences/687f8239322f5ca855f8b537
+Content-Type: application/json
+
+{
+    "userId": "687f7711322f5ca855f8b52f",
+    "alimentsAimes": [
+      "Sauce feuille",
+      "Foufou",
+      "Sauce aubergine",
+      "Fruits frais"
+    ],
+    "alimentsEvites": [
+      "Sel en excès",
+      "Charcuterie",
+      "Viande rouge grasse"
+    ],
+    "allergies": [],
+    "regime": [
+      "Hyposodé"
+    ]
+}
+
+### PUT update user
+PUT http://localhost:3001/user-preferences/user/11
+Content-Type: application/json
+
+{
+    "userId": "11",
+    "alimentsAimes": [
+        "attieké",
+        "poisson braisé",
+        "alloco"
+    ],
+    "alimentsEvites": [
+        "porc",
+        "boissons gazeuses"
+    ],
+    "allergies": [
+        "arachides"
+    ],
+    "regime": [
+        "halal"
+    ]
+}
+
+### DELETE user by Id
+DELETE http://localhost:3001/user-preferences/688317d4424474a4cdccaab2

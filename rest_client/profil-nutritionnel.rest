@@ -1,0 +1,40 @@
+//LOCALHOST
+
+### GET all profilnutritionnels
+GET http://localhost:3001/profil-nutritionnels
+
+### GET profilnutritionnel by Id
+GET http://localhost:3001/profil-nutritionnels/687f7f47322f5ca855f8b531
+
+### POST create profilnutritionnel
+POST http://localhost:3001/profil-nutritionnels
+Content-Type: application/json
+
+{
+    "genre": "Femme",
+    "age": 43,
+    "poids": 51,
+    "taille": 155,
+    "niveauActivite": "Modérément actif (3-5 j/semaine)",
+    "objectif": "Prendre du poids",
+    "besoinsCaloriques": 1750,
+    "pathologies": []
+}
+
+### PUT update profilnutritionnel
+PUT http://localhost:3001/profil-nutritionnels/6880c7353dee0abf21b60211
+Content-Type: application/json
+
+{
+    "genre": "Femme",
+    "age": 43,
+    "poids": 51,
+    "taille": 155,
+    "niveauActivite": "Sédentaire (pas de sport)",
+    "objectif": "Prendre du poids",
+    "besoinsCaloriques": 1750,
+    "pathologies": []
+}
+
+### DELETE profilnutritionnel by Id
+DELETE http://localhost:3001/profil-nutritionnels/68857dd04a8249ec7840b364

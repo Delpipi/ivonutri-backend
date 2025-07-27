@@ -1,0 +1,23 @@
+[
+    {
+        "userId": "687f7711322f5ca855f8b52d",
+        "alimentsAimes": ["Attiéké", "Poisson braisé", "Légumes vapeur", "Papaye"],
+        "alimentsEvites": ["Pain", "Bière", "Plats trop gras"],
+        "allergies": ["Gluten"],
+        "regime": ["Sans gluten"]
+    },
+    {
+        "userId": "687f7711322f5ca855f8b52e",
+        "alimentsAimes": ["Riz sauce graine", "Igname bouillie", "Poulet braisé", "Avocat"],
+        "alimentsEvites": ["Fast food", "Boissons sucrées"],
+        "allergies": [],
+        "regime": ["Classique"]
+    },
+    {
+        "userId": "687f7711322f5ca855f8b52f",
+        "alimentsAimes": ["Légumes feuillus", "Foufou", "Sauce aubergine", "Fruits frais"],
+        "alimentsEvites": ["Sel en excès", "Charcuterie", "Viande rouge grasse"],
+        "allergies": [],
+        "regimes": ["Hyposodé"]
+    }
+]

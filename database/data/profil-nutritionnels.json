@@ -1,0 +1,32 @@
+[
+    {
+        "genre": "Femme",
+        "age": 29,
+        "poids": 64,
+        "taille": 167,
+        "niveauActivite": "Modérément actif (3-5 j/semaine)",
+        "objectif": "Perte de poids",
+        "besoinsCaloriques": 1750,
+        "pathologies": ["diabète"]
+    },
+    {
+        "genre": "Homme",
+        "age": 35,
+        "poids": 78,
+        "taille": 180,
+        "niveauActivite": "Extrêmement actif (2x par jour)",
+        "objectif": "Prise de masse musculaire",
+        "besoinsCaloriques": 2800,
+        "pathologies": []
+    },
+    {
+        "genre": "Homme",
+        "age": 42,
+        "poids": 85,
+        "taille": 175,
+        "niveauActivite": "Légèrement actif (1-3 j/semaine)",
+        "objectif": "Perte de poids",
+        "besoinsCaloriques": 2000,
+        "pathologies": ["Hypertension"]
+    }
+]

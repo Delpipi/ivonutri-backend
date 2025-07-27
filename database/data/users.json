@@ -1,0 +1,24 @@
+[
+    
+    {
+        "nom": "Aïssata Koné",
+        "email": "aissata@example.com",
+        "role": "utilisateur",
+        "langue": "fr",
+        "profilNutritionnelId": null
+    },
+    {
+        "nom": "Kouadio Jean Marie",
+        "email": "jean.marie@example.com",
+        "role": "utilisateur",
+        "langue": "fr",
+        "profilNutritionnelId": null
+    },
+    {
+        "nom": "Sery Michael",
+        "email": "michael@example.com",
+        "role": "utilisateur",
+        "langue": "fr",
+        "profilNutritionnelId": null
+    }
+]

@@ -1,0 +1,34 @@
+//LOCALHOST
+
+### GET all users
+GET http://localhost:3001/users
+
+### GET user by Id
+GET http://localhost:3001/users/687f7711322f5ca855f8b52d
+
+### POST create user
+POST http://localhost:3001/users
+Content-Type: application/json
+
+{
+    "nom": "Kouame Andrea Josiane",
+    "email": "josiane@example.com",
+    "role": "utilisateur",
+    "langue": "fr",
+    "profilNutritionnelId": null
+}
+
+### PUT update user
+PUT http://localhost:3001/users/687f7711322f5ca855f8b52d
+Content-Type: application/json
+
+{
+    "nom": "Aïssata Koné",
+    "email": "aissata@example.com",
+    "role": "utilisateur",
+    "langue": "fr",
+    "profilNutritionnelId": "687f7f47322f5ca855f8b531"
+}
+
+### DELETE user by Id
+DELETE http://localhost:3001/users/6880c2fb55e9bd867975873e
