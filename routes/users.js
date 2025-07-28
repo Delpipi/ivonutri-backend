@@ -68,6 +68,7 @@ routes.delete('/:id',
         schema: { $ref: '#/definitions/ErrorResponse' }
       }
     */
+    utilities.isAuthenticated,
     validate.userIdRules(),
     validate.checkRules,
     utilities.handleErrors(userController.deleteUserById),
