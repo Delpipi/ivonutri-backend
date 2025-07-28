@@ -35,6 +35,7 @@ routes.post('/',
       schema: { $ref: '#/definitions/ErrorResponse' }
     }
   */
+    utilities.isAuthenticated,
     validate.userRules(),
     validate.checkRules,
     utilities.handleErrors(userController.createUser),
@@ -53,6 +54,7 @@ routes.put('/:id',
       schema: { $ref: '#/definitions/ErrorResponse' }
     }
   */
+    utilities.isAuthenticated,
     validate.userIdRules(),
     validate.userRules(),
     validate.checkRules,

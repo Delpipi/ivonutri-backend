@@ -7,6 +7,10 @@ const bodyParser = require('body-parser');
 const app = express();
 const db = require('./database');
 
+const session = require('express-session');
+const passport = require('passport');
+const passeportSetup = require('./utilities/passport-setup');
+
 require('dotenv').config();
 
 
@@ -14,7 +18,21 @@ require('dotenv').config();
 /****************************
 ******** Middleware  ********
 *****************************/
-app.use(cors())
+app
+    .use(session({
+    secret: process.env.SESSION_SECRET,
+    resave: false,
+    saveUninitialized: true,
+    name: 'sessionId',
+    cookie: {
+        httpOnly: true,
+        secure: process.env.NODE_ENV === 'production',
+        maxAge: 3600 * 1000 // valid 1 hour
+        }
+    }))
+    .use(passport.initialize())
+    .use(passport.session())
+    .use(cors())
     .use(bodyParser.json())
     .use(bodyParser.urlencoded({ extended: true }));
 
