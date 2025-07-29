@@ -19,6 +19,25 @@ require('dotenv').config();
 ******** Middleware  ********
 *****************************/
 app
+    .use(bodyParser.json())
+    .use(bodyParser.urlencoded({ extended: true }))
+    .use((req, res, next) => {
+        res.setHeader("Access-Controll-Allow-Origin", "*");
+        res.setHeader(
+            "Access-Control-Allow-Methods",
+            "Origin, X-requested-With, Content-Type, Accept, Z-Key"
+        );
+        res.setHeader(
+            "Access-Control-Allow-Methods",
+            "Origin, X-requested-With, Content-Type, Accept, Z-Key"
+        );
+        res.setHeader(
+            "Access-Control-Allow-Methods",
+            "POST, GET, PUT, PATCH, OPTIONS, DELETE"
+        );
+    })
+    .use(cors({ methods: ['POST', 'GET', 'PUT', 'PATCH', 'OPTIONS', 'DELETE'] }))
+    .use(cors({ origin: '*' }))
     .use(session({
     secret: process.env.SESSION_SECRET,
     resave: false,
@@ -32,9 +51,9 @@ app
     }))
     .use(passport.initialize())
     .use(passport.session())
-    .use(cors())
-    .use(bodyParser.json())
-    .use(bodyParser.urlencoded({ extended: true }));
+   
+    
+    
 
 
 
