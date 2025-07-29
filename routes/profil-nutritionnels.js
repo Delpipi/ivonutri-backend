@@ -12,6 +12,7 @@ routes.get('/',
         schema: { $ref: '#/definitions/ErrorResponse' }
       }
     */
+     utilities.isAuthenticated,
     utilities.handleErrors(profilController.getAllProfilNutritionnels)
 );
 routes.get('/:id',
@@ -21,6 +22,7 @@ routes.get('/:id',
         schema: { $ref: '#/definitions/ErrorResponse' }
       }
     */
+    utilities.isAuthenticated,
     validate.IdRules(),
     validate.checkRules,
     utilities.handleErrors(profilController.getProfilNutritionnelById)
@@ -38,6 +40,7 @@ routes.post('/',
         schema: { $ref: '#/definitions/ErrorResponse' }
       }
     */
+    utilities.isAuthenticated,
     validate.profilNutritionnelsRules(),
     validate.checkRules,
     utilities.handleErrors(profilController.createProfilNutritionnel)
@@ -55,6 +58,7 @@ routes.put('/:id',
         schema: { $ref: '#/definitions/ErrorResponse' }
       }
     */
+    utilities.isAuthenticated,
     validate.IdRules(),
     validate.profilNutritionnelsRules(),
     validate.checkRules,
@@ -67,6 +71,7 @@ routes.delete('/:id',
         schema: { $ref: '#/definitions/ErrorResponse' }
       }
     */
+    utilities.isAuthenticated,
     validate.IdRules(),
     validate.checkRules,
     utilities.handleErrors(profilController.deleteProfilNutritionnelById)

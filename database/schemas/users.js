@@ -6,6 +6,7 @@ const schema = mongoose.Schema(
         email: String,
         role: String,
         langue: String,
+        googleId: String,
         profilNutritionnelId: {
             type: mongoose.Schema.Types.ObjectId,
             ref: 'ProfilNutritionnels'

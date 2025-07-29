@@ -12,6 +12,7 @@ routes.get('/',
             schema: { $ref: '#/definitions/ErrorResponse' }
         }
     */
+    utilities.isAuthenticated,
     utilities.handleErrors(prefController.getAllUserPreferences)
 );
 routes.get('/:id',
@@ -21,6 +22,7 @@ routes.get('/:id',
             schema: { $ref: '#/definitions/ErrorResponse' }
         }
     */
+     utilities.isAuthenticated,
     validate.IdRules(),
     validate.checkRules,
     utilities.handleErrors(prefController.getUserPreferenceById)
@@ -32,6 +34,7 @@ routes.get('/user/:id',
         schema: { $ref: '#/definitions/ErrorResponse' }
       }
     */
+     utilities.isAuthenticated,
     validate.IdRules(),
     validate.checkRules,
     utilities.handleErrors(prefController.getUserPreferenceByUserId)
@@ -49,6 +52,7 @@ routes.post('/',
         schema: { $ref: '#/definitions/ErrorResponse' }
       }
     */
+    utilities.isAuthenticated,
     validate.userPreferencesRules(),
     validate.checkRules,
     utilities.handleErrors(prefController.createUserPreference)
@@ -66,6 +70,7 @@ routes.put('/:id',
         schema: { $ref: '#/definitions/ErrorResponse' }
       }
     */
+    utilities.isAuthenticated,
     validate.IdRules(),
     validate.userPreferencesRules(),
     validate.checkRules,
@@ -84,6 +89,7 @@ routes.put('/user/:id',
         schema: { $ref: '#/definitions/ErrorResponse' }
       }
     */
+    utilities.isAuthenticated,
     validate.IdRules(),
     validate.userPreferencesRules(),
     validate.checkRules,
@@ -97,6 +103,7 @@ routes.delete('/:id',
         schema: { $ref: '#/definitions/ErrorResponse' }
       }
     */
+    utilities.isAuthenticated,
     validate.IdRules(),
     validate.checkRules,
     utilities.handleErrors(prefController.deleteUserPreferenceById)

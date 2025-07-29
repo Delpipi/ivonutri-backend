@@ -12,11 +12,18 @@ routes.get('/',
         schema: { $ref: '#/definitions/ErrorResponse' }
       }
     */
+    utilities.isAuthenticated,
     utilities.handleErrors(userController.getAllUsers)
 );
 
 routes.get('/:id',
-    /* #swagger.tags = ['Users'] */
+    /* #swagger.tags = ['Users']
+      #swagger.responses[default] = {
+        description: 'Erreur',
+        schema: { $ref: '#/definitions/ErrorResponse' }
+      }
+    */
+    utilities.isAuthenticated,
     validate.userIdRules(),
     validate.checkRules,
     utilities.handleErrors(userController.getUserById),
@@ -53,6 +60,7 @@ routes.put('/:id',
       schema: { $ref: '#/definitions/ErrorResponse' }
     }
   */
+    utilities.isAuthenticated,
     validate.userIdRules(),
     validate.userRules(),
     validate.checkRules,
@@ -66,6 +74,7 @@ routes.delete('/:id',
         schema: { $ref: '#/definitions/ErrorResponse' }
       }
     */
+    utilities.isAuthenticated,
     validate.userIdRules(),
     validate.checkRules,
     utilities.handleErrors(userController.deleteUserById),
