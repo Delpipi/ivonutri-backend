@@ -31,6 +31,7 @@ app
             "Access-Control-Allow-Methods",
             "POST, GET, PUT, PATCH, OPTIONS, DELETE"
         );
+        next();
     })
     .use(cors({ methods: ['POST', 'GET', 'PUT', 'PATCH', 'OPTIONS', 'DELETE'] }))
     .use(cors({ origin: '*' }))
@@ -49,10 +50,6 @@ app
     .use(passport.session())
    
     
-    
-
-
-
     
 /****************************
 ******** Routes  ************
