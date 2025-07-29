@@ -22,14 +22,10 @@ app
     .use(bodyParser.json())
     .use(bodyParser.urlencoded({ extended: true }))
     .use((req, res, next) => {
-        res.setHeader("Access-Controll-Allow-Origin", "*");
+        res.setHeader("Access-Control-Allow-Origin", "*");
         res.setHeader(
             "Access-Control-Allow-Methods",
-            "Origin, X-requested-With, Content-Type, Accept, Z-Key"
-        );
-        res.setHeader(
-            "Access-Control-Allow-Methods",
-            "Origin, X-requested-With, Content-Type, Accept, Z-Key"
+            "Origin, X-Requested-With, Content-Type, Accept, Z-Key"
         );
         res.setHeader(
             "Access-Control-Allow-Methods",
