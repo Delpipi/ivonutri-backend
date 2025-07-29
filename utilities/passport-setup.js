@@ -3,6 +3,12 @@ const GoogleStrategy = require('passport-google-oauth20').Strategy;
 const userModel = require('../models/user-model');
 require('dotenv').config();
 
+const isProduction = process.env.NODE_ENV === 'production';
+
+const callbackURL = isProduction
+  ? 'https://ivonutri-backend.onrender.com/auth/google/redirect'
+  : 'http://localhost:3001/auth/google/redirect';
+
 passport.serializeUser((user, done) => {
   done(null, user.id);
 });
@@ -16,7 +22,7 @@ passport.deserializeUser((id, done) => {
 passport.use(new GoogleStrategy({
     clientID: process.env.GOOGLE_CLIENT_ID,
     clientSecret: process.env.GOOGLE_CLIENT_SECRET,
-    callbackURL: "/auth/google/redirect"
+    callbackURL: callbackURL
   },
   (accessToken, refreshToken, profile, done) => {
     data = {};
