@@ -1,5 +1,6 @@
 const routes= require('express').Router();
 const passport = require('passport');
+const httpStatusCode = require('../utilities/http-status-code')
 
 routes.get('/login', () => {
     console.log('Login');
@@ -20,7 +21,10 @@ routes.get('/logout', (req, res, next) => {
 });
 
 //callback route for google to redirect to
-routes.get('/google/redirect', passport.authenticate('google',{failureRedirect: '/api-docs', session: false}), (req, res) => {
+routes.get('/google/redirect', passport.authenticate('google', { failureRedirect: '/api-docs' }), (err, req, res) => {
+    if (err) {
+        console.error('Google auth error:', err);
+    }
     req.session.user = req.user;
     res.redirect('/');
 });

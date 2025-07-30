@@ -13,50 +13,40 @@ const passeportSetup = require('./utilities/passport-setup');
 
 require('dotenv').config();
 
-
+const isProduction = process.env.NODE_ENV === 'production';
 
 /****************************
 ******** Middleware  ********
 *****************************/
+
+//CORS Config
+const corsOptions = {
+    origin: isProduction
+        ? ['https://ivonutri-backend.onrender.com']
+        : ['http://localhost:3001'],
+    credentials: true,
+    methods: ['POST', 'GET', 'PUT', 'PATCH', 'OPTIONS', 'DELETE'],
+    allowedHeaders: ['Origin', 'X-Requested-With', 'Content-Type', 'Accept', 'Authorization', 'Z-Key']
+};
+
 app
     .use(bodyParser.json())
     .use(bodyParser.urlencoded({ extended: true }))
-    .use((req, res, next) => {
-        res.setHeader("Access-Control-Allow-Origin", "*");
-        res.setHeader(
-            "Access-Control-Allow-Methods",
-            "Origin, X-Requested-With, Content-Type, Accept, Z-Key"
-        );
-        res.setHeader(
-            "Access-Control-Allow-Methods",
-            "POST, GET, PUT, PATCH, OPTIONS, DELETE"
-        );
-        next();
-    })
-    .use(cors({ methods: ['POST', 'GET', 'PUT', 'PATCH', 'OPTIONS', 'DELETE'] }))
-    .use(cors({ origin: '*' }))
+    .use(cors(corsOptions))
     .use(session({
-    secret: process.env.SESSION_SECRET,
-    resave: false,
-    saveUninitialized: true,
-    name: 'sessionId',
-    cookie: {
-        httpOnly: true,
-        secure: process.env.NODE_ENV === 'production',
-        maxAge: 3600 * 1000 // valid 1 hour
-        }
+        secret: process.env.SESSION_SECRET,
+        resave: false,
+        saveUninitialized: true,
+        name: 'sessionId',
     }))
     .use(passport.initialize())
     .use(passport.session())
    
     
-    
 /****************************
 ******** Routes  ************
 *****************************/
 app.use('/', require('./routes'));
-
-
 
 
 /* *******************************
@@ -67,11 +57,10 @@ app.use(async (err, req, res, next) => {
     console.error(`Error: "${err.status}": ${err.message}`);
     res.status(err.status || 500).json({
         success: false,
-        message: err.message || 'Insernal Server error',
+        message: err.message || 'Internal Server error',
         details: err.details || []
     });
 });
-
 
 
 /****************************
@@ -87,11 +76,11 @@ db.mongoose
     })
 
 
-
 /****************************
 ************** ENV **********
 *****************************/
 const PORT = process.env.PORT || 3001
+
 
 /****************************
 ***** Listen on port 3001 ***
