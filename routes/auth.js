@@ -21,12 +21,13 @@ routes.get('/logout', (req, res, next) => {
 });
 
 //callback route for google to redirect to
-routes.get('/google/redirect', passport.authenticate('google', { failureRedirect: '/api-docs' }), (err, req, res) => {
-    if (err) {
-        console.error('Google auth error:', err);
+routes.get('/google/redirect', passport.authenticate('google', { failureRedirect: '/api-docs' }), (req, res) => {
+    if (req.user) {
+        req.session.user = req.user;
+        res.redirect('/');
+    } else {
+        console.error('No user found after authentication');
     }
-    req.session.user = req.user;
-    res.redirect('/');
 });
 
 module.exports = routes;
