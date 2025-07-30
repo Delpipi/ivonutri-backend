@@ -87,6 +87,6 @@ const PORT = process.env.PORT || 3001
 *****************************/
 app.listen(PORT, () => {
     console.log(`... Server is running on port ${PORT}`);
-    onsole.log(`Environment: ${process.env.NODE_ENV}`);
+    console.log(`Environment: ${process.env.NODE_ENV}`);
     console.log(`Callback URL will be: ${isProduction ? 'https://ivonutri-backend.onrender.com/auth/google/redirect' : 'http://localhost:3001/auth/google/redirect'}`);
 });
